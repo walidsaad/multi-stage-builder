@@ -1,14 +1,14 @@
 #!/bin/sh
-echo Building lukondefmwila/react:build 
+echo Building react build 
 
-docker build -t lukondefmwila:build . -f Dockerfile.build 
+docker build -t build:v1.0 . -f Dockerfile.build 
 
-docker create --name extract lukondefmwila:build
+docker run -dt --name extract build:v1.0
 
 docker cp extract:/app/build ./app 
 
 docker rm -f extract 
 
-echo Building lukondefmwila/react:latest
+echo Building react:v1.0
 
-docker build --no-cache -t lukondefmwila/react:latest . -f Dockerfile.main
+docker build -t react:v1.0 . -f Dockerfile.main

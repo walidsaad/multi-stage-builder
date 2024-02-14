@@ -11,4 +11,4 @@ docker rm -f extract
 
 echo Building react:v1.0
 
-docker build -t react:v1.0 . -f Dockerfile.main
+docker build -t react:v1.0 . -f Dockerfile.run
